@@ -1,22 +1,44 @@
-# Bows Team Submission
+# BOWS Team Submission
 
-## Status of SSH service on headnode.
+## 1. SSH Service Status
+```command:
+systemctl status sshd
+```
+![ssh-status](https://github.com/user-attachments/assets/a97c58b3-06ef-4226-9b9e-d26166c4cb17)
 
-Use command prompt "systemctl status sshd"
-(![Screenshot 2025-04-05 213631](https://github.com/user-attachments/assets/0c65b1e9-bda6-4299-9ce2-716c97df2de9)
-)
+## 2. Running Services
+```command:
+systemctl list-units --type=service --state=running
+```
+![Running services](https://github.com/user-attachments/assets/3c6af675-e1c4-43f7-b3be-9a4c5a17e196)
 
-## list of running services.
 
-use command "systemctl"
-![Screenshot 2025-04-05 214946](https://github.com/user-attachments/assets/7a570f26-1e5d-4a42-994b-9a829d3058f4)
+## 3. SSH Process Identification
+```command:
+htop
+# Press F3, search for "sshd"
+```
+![htop-proesses](https://github.com/user-attachments/assets/3643cef1-3e4f-4022-a119-a48aadc01e83)
 
-## Identify the SSH process.
-//These display the full process listing filtering the "ps" output. Only shows lines with "sshd" using command "ps -Af | grep sshd"
-![Screenshot 2025-04-05 225357](https://github.com/user-attachments/assets/b4bb4c53-b6b6-4bb4-be83-aaec4d1803ba)
-This what you get using command "htop"
-![Screenshot 2025-04-05 215655](https://github.com/user-attachments/assets/cf9946ef-0315-4790-a124-5af6f7c6416f)
 
 ## 4. Node Exporter Metrics (Grafana Alternative)
-![Node Metrics](images/node-metrics.png)  
-Full output: [node_metrics.txt](node_metrics.txt)
+![node-metrics](https://github.com/user-attachments/assets/29011948-1ae1-4477-9cf1-f55be4c75b53)
+
+## 5. CPU Details (tmux)
+```command:
+tmux new-session -s cpu
+# Split window (Ctrl+B %)
+# Run in left pane:
+lscpu | grep -E 'Architecture|Core|Flags'
+# In right pane:
+ssh com2 "lscpu | grep -E 'Architecture|Core|Flags'"
+```
+![cpu-details](https://github.com/user-attachments/assets/8320a49e-fd91-4b60-a320-f7e4a18fc1e6)
+
+## 6. SSH Logs
+```command:
+journalctl -u sshd --since "1 hour ago"
+```
+![ssh-logs](https://github.com/user-attachments/assets/41093daa-178b-4d40-83a3-f01a00bfb416)
+
+
