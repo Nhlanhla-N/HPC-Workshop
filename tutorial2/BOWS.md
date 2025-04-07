@@ -21,8 +21,10 @@ htop
 ![htop-proesses](https://github.com/user-attachments/assets/3643cef1-3e4f-4022-a119-a48aadc01e83)
 
 
-## 4. Node Exporter Metrics (Grafana Alternative)
-![node-metrics](https://github.com/user-attachments/assets/29011948-1ae1-4477-9cf1-f55be4c75b53)
+## 4. Graphana-dashboard
+Access: `http://155.238.172.16:3000` (admin/captain_password)
+
+![graphana-dashboard](https://github.com/user-attachments/assets/ee372935-0393-4948-9ac6-a2381c2672ec)
 
 ## 5. CPU Details (tmux)
 ```command:
